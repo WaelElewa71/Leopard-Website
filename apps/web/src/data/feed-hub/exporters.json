@@ -1,0 +1,181 @@
+[
+  {
+    "id": "el-shahd",
+    "name": {
+      "ar": "الشهد للحاصلات والأعلاف",
+      "en": "El Shahd for Crops & Feed"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "برسيم حجازي، وسيلاج ذرة",
+      "en": "Alfalfa hay; corn silage"
+    },
+    "products": ["alfalfa", "corn"],
+    "phones": ["01096754864", "01204424045"],
+    "email": "info@elshahd-company.com"
+  },
+  {
+    "id": "thimar-agriculture",
+    "name": {
+      "ar": "Thimar Agriculture",
+      "en": "Thimar Agriculture"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "برسيم حجازي وبالات قش",
+      "en": "Alfalfa hay and straw bales"
+    },
+    "products": ["alfalfa"],
+    "phones": ["+20 3 4942030"],
+    "email": "info@thimar-agr.com"
+  },
+  {
+    "id": "greena-alfalfa",
+    "name": {
+      "ar": "Greena Alfalfa",
+      "en": "Greena Alfalfa"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "برسيم حجازي",
+      "en": "Alfalfa hay"
+    },
+    "products": ["alfalfa"],
+    "phones": ["01210818461"],
+    "email": "info@greenaalfalfa.com"
+  },
+  {
+    "id": "al-reefia",
+    "name": {
+      "ar": "الريفية للتصنيع والاستثمار الزراعي",
+      "en": "Al Reefia for Agricultural Manufacturing & Investment"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "برسيم حجازي",
+      "en": "Alfalfa hay"
+    },
+    "products": ["alfalfa"],
+    "phones": ["01202210028"],
+    "website": "expoegypt.gov.eg"
+  },
+  {
+    "id": "nile-verde",
+    "name": {
+      "ar": "Nile Verde",
+      "en": "Nile Verde"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "برسيم حجازي",
+      "en": "Alfalfa hay"
+    },
+    "products": ["alfalfa"],
+    "phones": ["01143088714"],
+    "email": "info@nileverde.com"
+  },
+  {
+    "id": "oilex",
+    "name": {
+      "ar": "OILEX",
+      "en": "OILEX"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "كسبة صويا 44% و48%",
+      "en": "Soybean meal, 44% and 48%"
+    },
+    "products": ["soybeanMeal"],
+    "phones": ["01015104040"],
+    "email": "info@oilex.co"
+  },
+  {
+    "id": "esraa-trade",
+    "name": {
+      "ar": "Esraa Trade",
+      "en": "Esraa Trade"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "كسبة صويا 44% و48%",
+      "en": "Soybean meal, 44% and 48%"
+    },
+    "products": ["soybeanMeal"],
+    "phones": ["01033888895"],
+    "website": "esraatrade.com"
+  },
+  {
+    "id": "al-nada-soy",
+    "name": {
+      "ar": "الندى لمنتجات الصويا",
+      "en": "Al Nada for Soy Products"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "منتجات صويا ومركزات أعلاف",
+      "en": "Soy products and feed concentrates"
+    },
+    "products": ["soybeanMeal"],
+    "phones": ["01013131711", "01227788189"],
+    "email": "info@alnadasoya.com"
+  },
+  {
+    "id": "hany-mazhar-group",
+    "name": {
+      "ar": "Hany Mazhar Group",
+      "en": "Hany Mazhar Group"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "ذرة صفراء وكسبة صويا؛ يلزم تأكيد إمكانية التصدير",
+      "en": "Yellow corn and soybean meal; export capability needs confirmation"
+    },
+    "products": ["corn", "soybeanMeal"],
+    "website": "hanymazhar.com"
+  },
+  {
+    "id": "egypt-globe-group",
+    "name": {
+      "ar": "Egypt Globe Group",
+      "en": "Egypt Globe Group"
+    },
+    "country": {
+      "ar": "مصر",
+      "en": "Egypt"
+    },
+    "activity": {
+      "ar": "كسبة صويا وخامات أعلاف",
+      "en": "Soybean meal and feed ingredients"
+    },
+    "products": ["soybeanMeal"],
+    "email": "export@egyptglobe.com",
+    "website": "egyptglobe.com"
+  }
+]

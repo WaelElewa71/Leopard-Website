@@ -1,0 +1,203 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum RfqStatus {
+  NEW
+  DATA_VALIDATION
+  DATA_MISSING
+  READY_FOR_SOURCING
+  SOURCING
+  RATES_RECEIVED
+  DRAFT_QUOTE
+  AWAITING_APPROVAL
+  APPROVED
+  SENT
+  NEGOTIATION
+  WON
+  LOST
+  EXPIRED
+}
+
+enum TransportMode {
+  SEA
+  AIR
+  LAND
+}
+
+enum ShipmentDirection {
+  IMPORT
+  EXPORT
+  CROSS_TRADE
+}
+
+enum PreferredContactMethod {
+  EMAIL
+  PHONE
+  WHATSAPP
+}
+
+enum LoadType {
+  FCL
+  LCL
+  NOT_APPLICABLE
+}
+
+enum OutboxStatus {
+  PENDING
+  PROCESSING
+  SENT
+  FAILED
+}
+
+model MasterCompany {
+  id                String           @id @default(uuid()) @db.Uuid
+  legalName         String           @db.VarChar(180)
+  normalizedName    String           @db.VarChar(180)
+  country           String           @db.VarChar(100)
+  countryNormalized String           @db.VarChar(100)
+  createdAt         DateTime         @default(now()) @db.Timestamptz(3)
+  updatedAt         DateTime         @updatedAt @db.Timestamptz(3)
+  contacts          CompanyContact[]
+  rfqs              Rfq[]
+
+  @@unique([normalizedName, countryNormalized], map: "master_company_identity_key")
+  @@index([countryNormalized])
+  @@map("master_companies")
+}
+
+model Contact {
+  id             String           @id @default(uuid()) @db.Uuid
+  fullName       String           @db.VarChar(140)
+  email          String           @db.VarChar(254)
+  emailNormalized String          @unique(map: "contacts_email_normalized_key") @db.VarChar(254)
+  phone          String           @db.VarChar(40)
+  createdAt      DateTime         @default(now()) @db.Timestamptz(3)
+  updatedAt      DateTime         @updatedAt @db.Timestamptz(3)
+  companies      CompanyContact[]
+  rfqs           Rfq[]
+
+  @@index([fullName])
+  @@map("contacts")
+}
+
+model CompanyContact {
+  companyId String       @db.Uuid
+  contactId String       @db.Uuid
+  roleTitle String?      @db.VarChar(100)
+  createdAt DateTime     @default(now()) @db.Timestamptz(3)
+  company   MasterCompany @relation(fields: [companyId], references: [id], onDelete: Cascade)
+  contact   Contact      @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  @@id([companyId, contactId])
+  @@index([contactId])
+  @@map("company_contacts")
+}
+
+model Rfq {
+  id                       String                @id @default(uuid()) @db.Uuid
+  reference                String                @unique(map: "rfqs_reference_key") @db.VarChar(32)
+  status                   RfqStatus             @default(NEW)
+  direction                ShipmentDirection
+  mode                     TransportMode
+  loadType                 LoadType               @default(NOT_APPLICABLE)
+  companyId                String                @db.Uuid
+  contactId                String                @db.Uuid
+  preferredContactMethod   PreferredContactMethod
+  originCountry            String                @db.VarChar(100)
+  originLocation           String                @db.VarChar(140)
+  originPort               String?               @db.VarChar(140)
+  destinationCountry       String                @db.VarChar(100)
+  destinationLocation      String                @db.VarChar(140)
+  destinationPort          String?               @db.VarChar(140)
+  incoterm                 String                @db.VarChar(8)
+  cargoReadyAt             DateTime?             @db.Date
+  additionalInstructions   String?               @db.Text
+  privacyConsentAt         DateTime              @db.Timestamptz(3)
+  source                   String                @default("website") @db.VarChar(40)
+  idempotencyKey           String?               @unique(map: "rfqs_idempotency_key_key") @db.VarChar(80)
+  createdAt                DateTime              @default(now()) @db.Timestamptz(3)
+  updatedAt                DateTime              @updatedAt @db.Timestamptz(3)
+  company                  MasterCompany         @relation(fields: [companyId], references: [id], onDelete: Restrict)
+  contact                  Contact               @relation(fields: [contactId], references: [id], onDelete: Restrict)
+  cargoItems               CargoItem[]
+  statusHistory            RfqStatusHistory[]
+
+  @@index([status, createdAt])
+  @@index([companyId, createdAt])
+  @@index([contactId, createdAt])
+  @@index([originCountry, destinationCountry])
+  @@map("rfqs")
+}
+
+model CargoItem {
+  id              String   @id @default(uuid()) @db.Uuid
+  rfqId           String   @db.Uuid
+  description     String   @db.Text
+  commodity       String?  @db.VarChar(140)
+  hsCode          String?  @db.VarChar(20)
+  grossWeightKg   Decimal  @db.Decimal(12, 3)
+  volumeCbm       Decimal? @db.Decimal(12, 4)
+  lengthCm        Decimal? @db.Decimal(10, 2)
+  widthCm         Decimal? @db.Decimal(10, 2)
+  heightCm        Decimal? @db.Decimal(10, 2)
+  packageCount    Int
+  packageType     String   @db.VarChar(80)
+  containerType   String?  @db.VarChar(40)
+  dangerousGoods Boolean  @default(false)
+  temperatureControl Boolean @default(false)
+  createdAt       DateTime @default(now()) @db.Timestamptz(3)
+  rfq             Rfq      @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  @@index([rfqId])
+  @@map("cargo_items")
+}
+
+model RfqStatusHistory {
+  id          String    @id @default(uuid()) @db.Uuid
+  rfqId       String    @db.Uuid
+  fromStatus  RfqStatus?
+  toStatus    RfqStatus
+  note        String?   @db.VarChar(500)
+  changedById String?   @db.Uuid
+  changedAt   DateTime  @default(now()) @db.Timestamptz(3)
+  rfq         Rfq       @relation(fields: [rfqId], references: [id], onDelete: Cascade)
+
+  @@index([rfqId, changedAt])
+  @@map("rfq_status_history")
+}
+
+model OutboxEvent {
+  id             String      @id @default(uuid()) @db.Uuid
+  eventType      String      @db.VarChar(100)
+  aggregateType  String      @db.VarChar(80)
+  aggregateId    String      @db.Uuid
+  payload        Json
+  status         OutboxStatus @default(PENDING)
+  attempts       Int         @default(0)
+  idempotencyKey String      @unique(map: "outbox_events_idempotency_key_key") @db.VarChar(160)
+  availableAt    DateTime    @default(now()) @db.Timestamptz(3)
+  processedAt    DateTime?   @db.Timestamptz(3)
+  lastError      String?     @db.VarChar(1000)
+  createdAt      DateTime    @default(now()) @db.Timestamptz(3)
+  updatedAt      DateTime    @updatedAt @db.Timestamptz(3)
+
+  @@index([status, availableAt])
+  @@index([aggregateType, aggregateId])
+  @@map("outbox_events")
+}
+
+model RateLimitBucket {
+  key          String   @id @db.VarChar(80)
+  requestCount Int      @default(0)
+  expiresAt    DateTime @db.Timestamptz(3)
+  updatedAt    DateTime @updatedAt @db.Timestamptz(3)
+
+  @@index([expiresAt])
+  @@map("rate_limit_buckets")
+}

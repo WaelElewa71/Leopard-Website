@@ -1,0 +1,42 @@
+export type PreferredContactMethod = "EMAIL" | "PHONE" | "WHATSAPP";
+export type ShipmentDirection = "IMPORT" | "EXPORT" | "CROSS_TRADE";
+export type TransportMode = "SEA" | "AIR" | "LAND";
+export type RfqLoadType = "FCL" | "LCL" | "NOT_APPLICABLE";
+export type Incoterm =
+  "EXW" | "FCA" | "CPT" | "CIP" | "DAP" | "DPU" | "DDP" | "FAS" | "FOB" | "CFR" | "CIF";
+
+export type RfqSubmission = {
+  companyName: string;
+  contactName: string;
+  email: string;
+  phone: string;
+  companyCountry: string;
+  preferredContactMethod: PreferredContactMethod;
+  direction: ShipmentDirection;
+  mode: TransportMode;
+  originCountry: string;
+  originLocation: string;
+  originPort?: string;
+  destinationCountry: string;
+  destinationLocation: string;
+  destinationPort?: string;
+  loadType: RfqLoadType;
+  containerType?: string;
+  cargoDescription: string;
+  commodity?: string;
+  hsCode?: string;
+  grossWeightKg: number;
+  packageCount: number;
+  packageType: string;
+  volumeCbm?: number;
+  lengthCm?: number;
+  widthCm?: number;
+  heightCm?: number;
+  incoterm: Incoterm;
+  cargoReadyDate?: string;
+  dangerousGoods: boolean;
+  temperatureControl: boolean;
+  additionalInstructions?: string;
+  privacyConsent: boolean;
+  source: "website" | "feed-hub";
+};

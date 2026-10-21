@@ -1,0 +1,42 @@
+{
+  "name": "leopard-international-shipping-platform",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.8.0"
+  },
+  "workspaces": [
+    "apps/web",
+    "packages/database"
+  ],
+  "scripts": {
+    "postinstall": "prisma generate",
+    "dev": "npm run dev --workspace @leopard/web",
+    "build": "npm run build --workspace @leopard/web",
+    "start": "npm run start --workspace @leopard/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspace @leopard/web",
+    "db:generate": "prisma generate",
+    "db:validate": "prisma validate",
+    "db:migrate": "prisma migrate dev",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "eslint": "^10.13.0",
+    "prettier": "^3.6.2",
+    "prisma": "7.10.1",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.0",
+    "vitest": "^4.1.12"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "7.10.1",
+    "@prisma/client": "7.10.1",
+    "dotenv": "^17.2.3",
+    "pg": "^8.16.3"
+  }
+}

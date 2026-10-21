@@ -1,0 +1,168 @@
+[
+  {
+    "id": "zawiah-feeds",
+    "name": {
+      "ar": "Zawiah Feeds",
+      "en": "Zawiah Feeds"
+    },
+    "country": {
+      "ar": "الإمارات",
+      "en": "United Arab Emirates"
+    },
+    "activity": {
+      "ar": "أعلاف وبرسيم",
+      "en": "Feed and alfalfa"
+    },
+    "products": ["alfalfa"],
+    "website": "zawiah.ae"
+  },
+  {
+    "id": "al-hitmi-foods",
+    "name": {
+      "ar": "Al Hitmi Foods",
+      "en": "Al Hitmi Foods"
+    },
+    "country": {
+      "ar": "قطر",
+      "en": "Qatar"
+    },
+    "activity": {
+      "ar": "برسيم وذرة وكسبة صويا",
+      "en": "Alfalfa, corn and soybean meal"
+    },
+    "products": ["alfalfa", "corn", "soybeanMeal"],
+    "phones": ["+974 4402 3091"],
+    "email": "info@alhitmifoods.com",
+    "website": "alhitmifoods.com"
+  },
+  {
+    "id": "ieco",
+    "name": {
+      "ar": "IECO",
+      "en": "IECO"
+    },
+    "country": {
+      "ar": "السعودية",
+      "en": "Saudi Arabia"
+    },
+    "activity": {
+      "ar": "حبوب وأعلاف وكسبة صويا",
+      "en": "Grains, feed and soybean meal"
+    },
+    "products": ["soybeanMeal"],
+    "phones": ["+966 55 146 2878"],
+    "email": "info@ieco-sa.com",
+    "website": "ieco-sa.com"
+  },
+  {
+    "id": "united-natural-products",
+    "name": {
+      "ar": "United Natural Products",
+      "en": "United Natural Products"
+    },
+    "country": {
+      "ar": "عُمان",
+      "en": "Oman"
+    },
+    "activity": {
+      "ar": "استيراد وتوريد خامات أعلاف",
+      "en": "Import and supply of feed ingredients"
+    },
+    "products": [],
+    "phones": ["+968 22 737 920"],
+    "email": "info@unpoman.com",
+    "website": "unpoman.com"
+  },
+  {
+    "id": "sohul-al-maha",
+    "name": {
+      "ar": "Sohul Al Maha",
+      "en": "Sohul Al Maha"
+    },
+    "country": {
+      "ar": "عُمان",
+      "en": "Oman"
+    },
+    "activity": {
+      "ar": "برسيم مصري وذرة صفراء",
+      "en": "Egyptian alfalfa and yellow corn"
+    },
+    "products": ["alfalfa", "corn"],
+    "phones": ["+968 99 775 893"],
+    "email": "esaarbab@gmail.com"
+  },
+  {
+    "id": "alfalfa-al-salmi",
+    "name": {
+      "ar": "Alfalfa Al Salmi",
+      "en": "Alfalfa Al Salmi"
+    },
+    "country": {
+      "ar": "الكويت",
+      "en": "Kuwait"
+    },
+    "activity": {
+      "ar": "تجارة أعلاف وماشية",
+      "en": "Feed and livestock trading"
+    },
+    "products": [],
+    "phones": ["+965 55 338 937"],
+    "email": "import@alfalfa-alsalmi.com"
+  },
+  {
+    "id": "feeds-kuwait",
+    "name": {
+      "ar": "Feeds Kuwait",
+      "en": "Feeds Kuwait"
+    },
+    "country": {
+      "ar": "الكويت",
+      "en": "Kuwait"
+    },
+    "activity": {
+      "ar": "تجارة واستيراد وتصدير أعلاف",
+      "en": "Feed trading, import and export"
+    },
+    "products": [],
+    "phones": ["+965 65057722"],
+    "email": "info@feedskw.com",
+    "website": "feedskw.com"
+  },
+  {
+    "id": "kuwait-animal-feed-factory",
+    "name": {
+      "ar": "Kuwait Animal Feed Factory",
+      "en": "Kuwait Animal Feed Factory"
+    },
+    "country": {
+      "ar": "الكويت",
+      "en": "Kuwait"
+    },
+    "activity": {
+      "ar": "تصنيع واستيراد خامات أعلاف",
+      "en": "Manufacturing and importing feed ingredients"
+    },
+    "products": [],
+    "phones": ["+965 22240400"],
+    "website": "alsayergroup.com"
+  },
+  {
+    "id": "kfo",
+    "name": {
+      "ar": "KFO",
+      "en": "KFO"
+    },
+    "country": {
+      "ar": "الكويت",
+      "en": "Kuwait"
+    },
+    "activity": {
+      "ar": "استيراد أعلاف ومركزات",
+      "en": "Feed and concentrate imports"
+    },
+    "products": [],
+    "phones": ["+965 65858596"],
+    "email": "kfo@kfokw.com",
+    "website": "kfokw.com"
+  }
+]

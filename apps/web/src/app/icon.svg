@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Leopard">
+  <rect width="64" height="64" rx="12" fill="#101c33"/>
+  <path d="M9 43 32 9l23 34H9Z" fill="none" stroke="#c7a45a" stroke-width="4"/>
+  <path d="m19 43 13-19 13 19M14 51h36" fill="none" stroke="#c7a45a" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="32" cy="49.5" r="3" fill="#c7a45a"/>
+</svg>
